@@ -1,209 +1,210 @@
 /* global it, describe, expect, jest */
 
-import React from 'react'; // eslint-disable-line no-unused-vars
-import Datetime from '../DateTime.js';
-import renderer from 'react-test-renderer';
+import React from "react"; // eslint-disable-line no-unused-vars
+import Calendar from "../Calendar.js";
+import renderer from "react-test-renderer";
 
 // findDOMNode is not supported by the react-test-renderer,
 // and even though this component is not using that method
 // a dependency is probably using it. So we need to mock it
 // to make the tests pass.
 // https://github.com/facebook/react/issues/7371
-jest.mock('react-dom', () => ({
-    findDOMNode: () => {},
-}));
+jest.mock("react-dom", () => ({
+        findDOMNode: () => {
+        },
+    }));
 
 // Mock date to get rid of time as a factor to make tests deterministic
 Date.now = jest.fn(() => 1482363367071);
 
-it('everything default: renders correctly', () => {
+it("everything default: renders correctly", () => {
     const tree = renderer.create(
-        <Datetime />
-    ).toJSON();
+        <Calendar />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-it('value: set to arbitrary value', () => {
+it("value: set to arbitrary value", () => {
     const tree = renderer.create(
-        <Datetime defaultValue={Date.now()} />
-    ).toJSON();
+        <Calendar defaultValue={Date.now()} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-it('defaultValue: set to arbitrary value', () => {
+it("defaultValue: set to arbitrary value", () => {
     const tree = renderer.create(
-        <Datetime defaultValue={Date.now()} />
-    ).toJSON();
+        <Calendar defaultValue={Date.now()} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-describe('dateFormat', () => {
-    it('set to true', () => {
+describe("dateFormat", () => {
+    it("set to true", () => {
         const tree = renderer.create(
-            <Datetime dateFormat={true} />
-        ).toJSON();
+            <Calendar dateFormat={true} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('set to false', () => {
+    it("set to false", () => {
         const tree = renderer.create(
-            <Datetime dateFormat={false} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-});
-
-describe('timeFormat', () => {
-    it('set to true', () => {
-        const tree = renderer.create(
-            <Datetime timeFormat={true} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('set to false', () => {
-        const tree = renderer.create(
-            <Datetime timeFormat={false} />
-        ).toJSON();
+            <Calendar dateFormat={false} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
 
-describe('input', () => {
-    it('input: set to true', () => {
+describe("timeFormat", () => {
+    it("set to true", () => {
         const tree = renderer.create(
-            <Datetime input={true} />
-        ).toJSON();
+            <Calendar timeFormat={true} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('input: set to false', () => {
+    it("set to false", () => {
         const tree = renderer.create(
-            <Datetime input={false} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-});
-
-describe('open', () => {
-    it('set to true', () => {
-        const tree = renderer.create(
-            <Datetime open={true} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('set to false', () => {
-        const tree = renderer.create(
-            <Datetime open={false} />
-        ).toJSON();
+            <Calendar timeFormat={false} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
 
-describe('viewMode', () => {
-    it('set to days', () => {
+describe("input", () => {
+    it("input: set to true", () => {
         const tree = renderer.create(
-            <Datetime viewMode={'days'} />
-        ).toJSON();
+            <Calendar input={true} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('set to months', () => {
+    it("input: set to false", () => {
         const tree = renderer.create(
-            <Datetime viewMode={'months'} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('set to years', () => {
-        const tree = renderer.create(
-            <Datetime viewMode={'years'} />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('set to time', () => {
-        const tree = renderer.create(
-            <Datetime viewMode={'time'} />
-        ).toJSON();
+            <Calendar input={false} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
 
-it('className: set to arbitraty value', () => {
+describe("open", () => {
+    it("set to true", () => {
+        const tree = renderer.create(
+            <Calendar open={true} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it("set to false", () => {
+        const tree = renderer.create(
+            <Calendar open={false} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+});
+
+describe("viewMode", () => {
+    it("set to days", () => {
+        const tree = renderer.create(
+            <Calendar viewMode={"days"} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it("set to months", () => {
+        const tree = renderer.create(
+            <Calendar viewMode={"months"} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it("set to years", () => {
+        const tree = renderer.create(
+            <Calendar viewMode={"years"} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it("set to time", () => {
+        const tree = renderer.create(
+            <Calendar viewMode={"time"} />
+            ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+});
+
+it("className: set to arbitraty value", () => {
     const tree = renderer.create(
-        <Datetime className={'arbitrary-value'} />
-    ).toJSON();
+        <Calendar className={"arbitrary-value"} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-describe('inputProps', () => {
-    it('with placeholder specified', () => {
+describe("inputProps", () => {
+    it("with placeholder specified", () => {
         const tree = renderer.create(
-            <Datetime inputProps={{ placeholder: 'arbitrary-placeholder' }} />
-        ).toJSON();
+            <Calendar inputProps={{ placeholder: "arbitrary-placeholder" }} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('with disabled specified', () => {
+    it("with disabled specified", () => {
         const tree = renderer.create(
-            <Datetime inputProps={{ disabled: true }} />
-        ).toJSON();
+            <Calendar inputProps={{ disabled: true }} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('with required specified', () => {
+    it("with required specified", () => {
         const tree = renderer.create(
-            <Datetime inputProps={{ required: true }} />
-        ).toJSON();
+            <Calendar inputProps={{ required: true }} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('with name specified', () => {
+    it("with name specified", () => {
         const tree = renderer.create(
-            <Datetime inputProps={{ name: 'arbitrary-name' }} />
-        ).toJSON();
+            <Calendar inputProps={{ name: "arbitrary-name" }} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    it('with className specified', () => {
+    it("with className specified", () => {
         const tree = renderer.create(
-            <Datetime inputProps={{ className: 'arbitrary-className' }} />
-        ).toJSON();
+            <Calendar inputProps={{ className: "arbitrary-className" }} />
+            ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
 
-it('isValidDate: only valid if after yesterday', () => {
-    const yesterday = Datetime.moment().subtract(1, 'day');
+it("isValidDate: only valid if after yesterday", () => {
+    const yesterday = Calendar.moment().subtract(1, "day");
     const valid = (current) => current.isAfter(yesterday);
     const tree = renderer.create(
-        <Datetime isValidDate={ valid } />
-    ).toJSON();
+        <Calendar isValidDate={ valid } />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-it('renderDay: specified', () => {
-    const renderDay = (props, currentDate) => <td {...props}>{ '0' + currentDate.date() }</td>;
+it("renderDay: specified", () => {
+    const renderDay = (props, currentDate) => <td {...props}>{ "0" + currentDate.date() }</td>;
     const tree = renderer.create(
-        <Datetime renderDay={renderDay} />
-    ).toJSON();
+        <Calendar renderDay={renderDay} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-it('renderMonth: specified', () => {
-    const renderMonth = (props, currentDate) => <td {...props}>{ '0' + currentDate.date() }</td>;
+it("renderMonth: specified", () => {
+    const renderMonth = (props, currentDate) => <td {...props}>{ "0" + currentDate.date() }</td>;
     const tree = renderer.create(
-        <Datetime renderMonth={renderMonth} />
-    ).toJSON();
+        <Calendar renderMonth={renderMonth} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-it('renderYear: specified', () => {
-    const renderYear = (props, currentDate) => <td {...props}>{ '0' + currentDate.date() }</td>;
+it("renderYear: specified", () => {
+    const renderYear = (props, currentDate) => <td {...props}>{ "0" + currentDate.date() }</td>;
     const tree = renderer.create(
-        <Datetime renderYear={renderYear} />
-    ).toJSON();
+        <Calendar renderYear={renderYear} />
+        ).toJSON();
     expect(tree).toMatchSnapshot();
 });

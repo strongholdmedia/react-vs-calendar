@@ -1,11 +1,13 @@
+// !ATTN this is temporarily ignored before I will have private free time for
+// such non-essential stuff
 module.exports = {
-		"parserOptions": {
-				"ecmaVersion": 6,
-				"sourceType": "module",
-				"ecmaFeatures": {
-						"jsx": true
-				}
-		},
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "env": {
         "browser": true
     },
@@ -26,11 +28,11 @@ module.exports = {
         // Enforce at least one newline at the end of files
         "eol-last": 2,
         // Require the use of === and !==
-        "eqeqeq": [2, "smart"],
+        "eqeqeq": [ 2, "smart" ],
         // Enforce consistent spacing before and after keywords
-        "keyword-spacing": [2, { "before": true, "after": true }],
+        "keyword-spacing": [ 2, { "before": true, "after": true } ],
         // Disallow multiple empty lines
-        "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
+        "no-multiple-empty-lines": [ 2, { "max": 1, "maxEOF": 1, "maxBOF": 0 } ],
         // Enforce the consistent use of the radix argument when using parseInt()
         "radix": 2,
         // Require or disallow semicolons instead of AS
@@ -42,6 +44,6 @@ module.exports = {
         // Enforce consistent spacing inside parentheses
         // "space-in-parens": [2, "always"],
         // Enforce the consistent use of either backticks, double, or single quotes
-        "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
+        "quotes": [ 2, "single", { "avoidEscape": true, "allowTemplateLiterals": true } ]
     }
 };

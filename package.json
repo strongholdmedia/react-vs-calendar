@@ -1,17 +1,17 @@
 {
-    "name": "react-datetime",
-    "version": "2.16.4",
+    "name": "@dorgaren/react-vs-calendar",
+    "version": "2.16.5",
     "description": "A lightweight but complete datetime picker React.js component",
     "homepage": "https://github.com/strongholdmedia/react-vs-calendar",
     "repository": {
         "type": "git",
         "url": "https://github.com/strongholdmedia/react-vs-calendar"
     },
-    "main": "./DateTime.js",
-    "typings": "./DateTime.d.ts",
+    "main": "./Calendar.js",
+    "typings": "./Calendar.d.ts",
     "files": [
-        "DateTime.js",
-        "DateTime.d.ts",
+        "Calendar.js",
+        "Calendar.d.ts",
         "src",
         "css",
         "dist"
@@ -31,7 +31,9 @@
     },
     "keywords": [
         "react",
+        "preact",
         "react-component",
+        "calendar",
         "datepicker",
         "timepicker",
         "datetimepicker",
@@ -100,7 +102,6 @@
     },
     "pre-commit": [
         "notify-pre-commit-hook",
-        "lint",
         "test:all"
     ]
 }

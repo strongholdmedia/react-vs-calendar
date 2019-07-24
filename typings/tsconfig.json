@@ -7,11 +7,11 @@
         "jsx": "react",
         "baseUrl": "../",
         "paths": {
-            "react-datetime": ["./"]
+            "@dorgaren/react-vs-calendar": [ "./" ]
         }
     },
     "files": [
-        "../DateTime.d.ts",
-        "react-datetime-tests.tsx"
+        "../Calendar.d.ts",
+        "react-vs-calendar-tests.tsx"
     ]
 }
