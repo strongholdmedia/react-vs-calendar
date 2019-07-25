@@ -1,5 +1,5 @@
 // Type definitions for react-datetime
-// Project: https://github.com/YouCanBookMe/react-datetime
+// Project: https://github.com/strongholdmedia/react-vs-calendar
 // Definitions by: Ivan Verevkin <vereva@x-root.org>
 //     Updates by: Aaron Spaulding <aaron@sachimp.com>,
 //                 Karol Janyst <http://github.com/LKay>
@@ -7,9 +7,9 @@
 import { Component, ChangeEvent, FocusEvent, FocusEventHandler } from "react";
 import { Moment } from "moment";
 
-export = ReactDatetimeClass;
+export = ReactVSCalendarClass;
 
-declare namespace ReactDatetimeClass {
+declare namespace ReactVSCalendarClass {
     /*
      The view mode can be any of the following strings.
      */
@@ -30,7 +30,7 @@ declare namespace ReactDatetimeClass {
 
     type EventOrValueHandler<Event> = (event: Event | Moment | string) => void;
 
-    export interface DatetimepickerProps {
+    export interface CalendarProps {
         /*
          Represents the selected date by the component, in order to use it as a controlled component.
          This prop is parsed by moment.js, so it is possible to use a date string or a moment.js date.
@@ -63,12 +63,12 @@ declare namespace ReactDatetimeClass {
          */
         input?: boolean;
         /*
-         Whether to open or close the picker. If not set react-datetime will open the
+         Whether to open or close the picker. If not set react-vs-calendar will open the
          datepicker on input focus and close it on click outside.
          */
         open?: boolean;
         /*
-         Manually set the locale for the react-datetime instance.
+         Manually set the locale for the react-vs-calendar instance.
          Moment.js locale needs to be loaded to be used, see i18n docs.
          */
         locale?: string;
@@ -155,7 +155,7 @@ declare namespace ReactDatetimeClass {
          */
         strictParsing?: boolean;
         /*
-         When true, once the day has been selected, the react-datetime will be automatically closed.
+         When true, once the day has been selected, the react-vs-calendar will be automatically closed.
          */
         closeOnSelect?: boolean;
         /*
@@ -172,7 +172,7 @@ declare namespace ReactDatetimeClass {
         disableOnClickOutside?: boolean;
     }
 
-    export interface DatetimepickerState {
+    export interface CalendarState {
         updateOn: string;
         inputFormat: string;
         viewDate: Moment;
@@ -182,4 +182,4 @@ declare namespace ReactDatetimeClass {
     }
 }
 
-declare class ReactDatetimeClass extends Component<ReactDatetimeClass.DatetimepickerProps, ReactDatetimeClass.DatetimepickerState> {}
+declare class ReactVSCalendarClass extends Component<ReactVSCalendarClass.CalendarProps, ReactVSCalendarClass.CalendarState> {}

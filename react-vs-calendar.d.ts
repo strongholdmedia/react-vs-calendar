@@ -46,12 +46,12 @@ declare module ReactVSCalendar
      */
     input?: boolean;
     /*
-     Whether to open or close the picker. If not set react-datetime will open the
+     Whether to open or close the picker. If not set react-vs-calendar will open the
      datepicker on input focus and close it on click outside.
      */
     open?: boolean;
     /*
-     Manually set the locale for the react-datetime instance.
+     Manually set the locale for the react-vs-calendar instance.
      Moment.js locale needs to be loaded to be used, see i18n docs.
      */
     locale?: string;
@@ -144,7 +144,7 @@ declare module ReactVSCalendar
      */
     strictParsing?: boolean;
     /*
-     When true, once the day has been selected, the react-datetime will be automatically closed.
+     When true, once the day has been selected, the react-vs-calendar will be automatically closed.
      */
     closeOnSelect?: boolean;
     /*

@@ -15,14 +15,16 @@ gulp.task("sub", () =>
 {
     // Reason behind having sub as separate task:
     // https://github.com/shama/webpack-stream/issues/114
-    return gulp.src("./DateTime.js")
+    return gulp
+        .src("./Calendar.js")
         .pipe(webpack(getWebpackConfig()))
         .pipe(gulp.dest("tmp/"));
 });
 
 gulp.task("build", [ "sub" ], () =>
 {
-    return gulp.src([ "tmp/react-datetime.js" ])
+    return gulp
+        .src([ "tmp/react-vs-calendar.js" ])
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(through.obj(function (file, enc, cb)
         {
@@ -61,9 +63,9 @@ const getWebpackConfig = () =>
             moment: "moment"
         },
         output: {
-            library: "Datetime",
+            library: "Calendar",
             libraryTarget: "umd",
-            filename: "react-datetime.js"
+            filename: "react-vs-calendar.js"
         }
     };
 };

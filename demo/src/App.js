@@ -15,18 +15,18 @@ export default class App extends Component
                     <div className="container">
                         <a
                             className="navbar-brand"
-                            href="https://github.com/YouCanBookMe/react-datetime"
+                            href="https://github.com/strongholdmedia/react-vs-calendar"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >react-datetime</a>
+                            >react-vs-calendar</a>
                     </div>
                 </nav>
 
                 <div className="container">
                     <div className="jumbotron">
-                        <h2>react-datetime</h2>
+                        <h2>react-vs-calendar</h2>
                         <p>
-                            A lightweight but complete datetime picker react component.
+                            A lightweight but complete datetime picker react component
                         </p>
                     </div>
 

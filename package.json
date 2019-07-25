@@ -1,6 +1,6 @@
 {
     "name": "@dorgaren/react-vs-calendar",
-    "version": "2.16.6",
+    "version": "2.16.7",
     "description": "A lightweight but complete datetime picker React.js component",
     "homepage": "https://github.com/strongholdmedia/react-vs-calendar",
     "repository": {
@@ -17,10 +17,11 @@
         "dist"
     ],
     "scripts": {
+        "build": "./node_modules/.bin/gulp",
         "build:mac": "./node_modules/.bin/gulp",
         "build:win": "./node_modules/.bin/gulp.cmd",
         "dev": "./node_modules/.bin/webpack-dev-server --config example/webpack.config.js --devtool eval --progress --colors --hot --content-base example",
-        "lint": "./node_modules/.bin/eslint src/ DateTime.js test/ && echo 'Linting OK! 💪'",
+        "lint": "./node_modules/.bin/eslint src/ Calendar.js test/ && echo 'Linting OK! 💪'",
         "notify-pre-commit-hook": "echo '### Starting pre-commit hook 🦄'",
         "test": "./node_modules/.bin/jest",
         "test:typings": "./node_modules/.bin/tsc -p ./typings",

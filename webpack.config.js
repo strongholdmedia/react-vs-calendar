@@ -7,7 +7,7 @@ var plugins = [
 ];
 
 module.exports = {
-    entry: [ "./DateTime.js" ],
+    entry: [ "./Calendar.js" ],
     output: {
         path: __dirname + "/dist/",
         library: "Calendar",
