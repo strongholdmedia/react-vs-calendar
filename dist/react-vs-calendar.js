@@ -1,5 +1,5 @@
 /*
-@dorgaren/react-vs-calendar v2.16.6
+@dorgaren/react-vs-calendar v2.16.9
 https://github.com/strongholdmedia/react-vs-calendar
 MIT: https://github.com/strongholdmedia/react-vs-calendar/raw/master/LICENSE
 */
@@ -93,6 +93,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        utc: TYPES.bool,
 	        displayTimeZone: TYPES.string,
 	        input: TYPES.bool,
+	        static: TYPES.bool,
 	        // dateFormat: TYPES.string | TYPES.bool,
 	        // timeFormat: TYPES.string | TYPES.bool,
 	        inputProps: TYPES.object,
@@ -536,6 +537,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                " " + this.props.className.join(" ") : " " + this.props.className) : ""),
 	            children = [ ];
 
+	        // keep default behavior backwards-compatible
+	        var isStatic = typeof this.props.static === "undefined"
+	            ? !this.props.input
+	            : this.props.static;
+
 	        if (this.props.input) {
 	            var finalInputProps = assign(
 	            { type: "text", className: "form-control", value: this.state.inputValue },
@@ -553,7 +559,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            } else {
 	                children = [ React.createElement("input", assign({ key: "i" }, finalInputProps)) ];
 	            }
-	        } else {
+	        }
+	        
+	        if (isStatic) {
 	            className += " rdtStatic";
 	        }
 

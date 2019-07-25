@@ -63,6 +63,12 @@ declare namespace ReactVSCalendarClass {
          */
         input?: boolean;
         /*
+         Whether or not to show the calendar as statically positioned.
+         Defaults to false when input is true (default), true otherwise.
+         When set, the value provided will always be used.
+         */
+        static?: boolean;
+        /*
          Whether to open or close the picker. If not set react-vs-calendar will open the
          datepicker on input focus and close it on click outside.
          */

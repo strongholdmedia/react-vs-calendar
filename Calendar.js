@@ -32,6 +32,7 @@ var Calendar = createClass({
         utc: TYPES.bool,
         displayTimeZone: TYPES.string,
         input: TYPES.bool,
+        static: TYPES.bool,
         // dateFormat: TYPES.string | TYPES.bool,
         // timeFormat: TYPES.string | TYPES.bool,
         inputProps: TYPES.object,
@@ -475,6 +476,11 @@ var Calendar = createClass({
                 " " + this.props.className.join(" ") : " " + this.props.className) : ""),
             children = [ ];
 
+        // keep default behavior backwards-compatible
+        var isStatic = typeof this.props.static === "undefined"
+            ? !this.props.input
+            : this.props.static;
+
         if (this.props.input) {
             var finalInputProps = assign(
             { type: "text", className: "form-control", value: this.state.inputValue },
@@ -492,7 +498,9 @@ var Calendar = createClass({
             } else {
                 children = [ React.createElement("input", assign({ key: "i" }, finalInputProps)) ];
             }
-        } else {
+        }
+        
+        if (isStatic) {
             className += " rdtStatic";
         }
 
